@@ -1,4 +1,16 @@
-# For most projects, this workflow file will not need changing; you simply need
+# For most projects, this workflow file will not need changing;       # ... (previous steps remain the same) ...
+
+      - name: Build dist/ Directory
+        id: build
+        run: npm run bundle
+
+      - name: Check and Auto-Commit dist/
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: automated transpilation of dist/ [skip ci]"
+          file_pattern: 'dist/*'
+          status_options: '--untracked-files=no'
+ simply need
 # to commit it to yo            - name: Upload a Build Artifact
   uses: actions/upload-artifact@v6.0.0
   with:
