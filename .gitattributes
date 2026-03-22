@@ -12,3 +12,15 @@
           commit_message: "chore: automated transpilation of dist/ [skip ci]"
           file_pattern: 'dist/*'
           status_options: '--untracked-files=no'
+      - name: Build dist/ Directory
+        id: build
+        run: npm run bundle
+
+      - name: Check and Auto-Commit dist/
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: automated transpilation of dist/ [skip ci]"
+          file_pattern: 'dist/*'
+          status_options: '--untracked-files=no'
+          # This ensures the commit respects your .gitattributes LF normalization
+          commit_options: '--no-verify' 
