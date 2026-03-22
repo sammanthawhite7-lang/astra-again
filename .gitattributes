@@ -24,3 +24,6 @@
           status_options: '--untracked-files=no'
           # This ensures the commit respects your .gitattributes LF normalization
           commit_options: '--no-verify' 
+# Handle line endings automatically for files detected as text 
+# and perform LF normalization on check-in.
+* text=auto
